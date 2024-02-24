@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
+# from accounting.db.models.users import auth_cookie  # type: ignore
 from accounting.db.models.users import UserCreate  # type: ignore
 from accounting.db.models.users import UserRead  # type: ignore
 from accounting.db.models.users import UserUpdate  # type: ignore
 from accounting.db.models.users import api_users  # type: ignore
-from accounting.db.models.users import auth_cookie  # type: ignore
 from accounting.db.models.users import auth_jwt  # type: ignore
 
 router = APIRouter()
