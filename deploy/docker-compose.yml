@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+      target: prod
+    image: accounting:${ACCOUNTING_VERSION:-latest}
+    restart: always
+    env_file:
+    - .env
+    environment:
+      ACCOUNTING_HOST: 0.0.0.0
+      ACCOUNTING_DB_FILE: /db_data/db.sqlite3
+    volumes:
+    - accounting-db-data:/db_data/
+
+
+
+volumes:
+  accounting-db-data:
+    name: accounting-db-data
