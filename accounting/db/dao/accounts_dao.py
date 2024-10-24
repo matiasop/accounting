@@ -37,3 +37,7 @@ class AccountDAO:
         query = select(Account).where(Account.name == name)
         rows = await self.session.execute(query)
         return list(rows.scalars().fetchall())
+
+    async def get_by_id(self, account_id: int) -> Account | None:
+        result = await self.session.execute(select(Account).filter_by(id=account_id))
+        return result.fetchone()
