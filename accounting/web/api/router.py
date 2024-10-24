@@ -5,6 +5,7 @@ from accounting.web.api import (
     categories,
     dummy,
     echo,
+    entries,
     monitoring,
     subcategories,
     users,
@@ -22,3 +23,4 @@ api_router.include_router(
     prefix="/subcategories",
     tags=["subcategories"],
 )
+api_router.include_router(entries.router, prefix="/entries", tags=["entries"])
